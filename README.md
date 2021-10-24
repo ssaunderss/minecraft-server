@@ -1,5 +1,5 @@
 # minecraft-server
-Host your own minnecraft server on AWS to save money 
+Host your own minecraft server on AWS to save money 
 
 
 Hey you, yeah you! Want to create your own minecraft server without paying for a realm? Looking for an overkill solution to impress your friends? Look no further! 
@@ -10,4 +10,6 @@ Hey you, yeah you! Want to create your own minecraft server without paying for a
 
 ## Todos:
 - [ ] Terraform Files
-- [ ] Elixir Server that takes care of startup / shutdown
+- [ ] Elixir Server that takes care of automatic startup / shutdown
+- [ ] Run automated backups of the server
+- [ ] Take care of breaking Terraform v0.13 issues
