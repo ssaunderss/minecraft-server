@@ -10,5 +10,4 @@ Hey you, yeah you! Want to create your own minecraft server without paying for a
 
 ## Todos:
 - [ ] Terraform Files
-- [ ] Scripts for AWS Lambda for dynamic startup / shutdown 
-- [ ] Maybe a micro Elixir Server that takes care of startup / shutdown instead of AWS for fun
+- [ ] Elixir Server that takes care of startup / shutdown
