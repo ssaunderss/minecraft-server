@@ -7,6 +7,7 @@ Want to create your own minecraft server without paying for a realm (by potentia
 2. AWS account 
 
 ## Todos:
+
 - [X] Base Terraform code for creating a minecraft server
 - [X] Run automated backups of the server
 - [ ] Take care of breaking Terraform v0.13 issues
@@ -14,4 +15,3 @@ Want to create your own minecraft server without paying for a realm (by potentia
 - [ ] Add Terraform code for micro EC2 server that hosts below Elixir GenServer
 - [ ] Create Elixir GenServer that takes care of automatic startup / shutdown of mc server (fun alternative to AWS Lambda to get some more hands on with Elixir)
 - [ ] Post Provisioning is already complicated and will get more complicated so migrate to Ansible or Puppet
-

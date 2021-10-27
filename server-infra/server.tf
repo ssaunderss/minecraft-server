@@ -47,8 +47,6 @@ resource "aws_instance" "minecraft_server" {
     }
 
     # Startup script for starting and managing minecraft server
-    # Credit to Julien Bras (github.com/julbrs / dev.to/julbrs) for a great
-    # tutoria
     user_data = <<-EOF
     #!/bin/bash
     sudo apt -y update
