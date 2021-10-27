@@ -117,8 +117,30 @@ resource "aws_instance" "minecraft_server" {
     echo "Setting minecraft server to start at boot time"
     sudo systemctl enable minecraft
 
-    echo "Opening up server to outside traffice"
+    echo "Opening up server to external traffic"
     sudo ufw allow 25565/tcp
+
+    echo "Creating backup script in /opt/minecraft/tools/backup.sh"
+    echo "
+    #!/bin/bash
+
+    function rcon {
+    /opt/minecraft/tools/mcrcon/mcrcon -H 127.0.0.1 -P 25575 -p ${var.rcon_password} "$1"
+    }
+
+    rcon "save-off"
+    rcon "save-all"
+    tar -cvpzf /opt/minecraft/backups/server-$(date +%F-%H-%M).tar.gz /opt/minecraft/server
+    rcon "save-on"
+
+    # Delete older backups (if older than 7 days)
+    find /opt/minecraft/backups/ -type f -mtime +7 -name '*.gz' -delete" >> /opt/minecraft/tools/backup.sh
+
+    # Make backup script executable
+    sudo chmod +x /opt/minecraft/tools/backup.sh
+
+    # Add entry to crontab so backup runs every hour
+    (crontab -l && echo "0 * * * * /opt/minecraft/tools/backup.sh") | crontab -
 
 
 
